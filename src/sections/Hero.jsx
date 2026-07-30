@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { SiAndroid } from 'react-icons/si'
 import portfolioData from '../data/portfolioData'
 import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion'
 
@@ -29,6 +28,7 @@ export default function Hero() {
   const prefersReducedMotion = usePrefersReducedMotion()
   const { title, subtitle, intro, projectsAnchor, contactAnchor } = portfolioData.hero
   const displayText = prefersReducedMotion ? intro : animatedText
+  const heroStats = portfolioData.stats.slice(0, 3)
 
   useEffect(() => {
     if (prefersReducedMotion) return undefined
@@ -105,30 +105,42 @@ export default function Hero() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.14),_transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(56,189,248,0.12),_transparent_25%)]" aria-hidden="true" />
               <div className="relative rounded-[32px] border border-white/10 bg-slate-900/95 p-6 shadow-[inset_0_0_60px_rgba(0,0,0,0.35)]">
                 <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
-                  <span className="rounded-full border border-emerald-300/15 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-emerald-300">ANDROID</span>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-200">Premium</span>
+                  <span className="rounded-full border border-emerald-300/15 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-emerald-300">React Native</span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-200">Android</span>
                 </div>
                 <div className="rounded-[24px] border border-white/10 bg-slate-950/90 p-6 shadow-[inset_0_0_40px_rgba(0,0,0,0.35)]">
-                  <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Now shipping</p>
-                  <h2 className="mt-3 text-3xl font-semibold text-white">Mobile-first apps</h2>
+                  <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Shipped products</p>
+                  <h2 className="mt-3 text-3xl font-semibold text-white">{portfolioData.projects.length} apps live across Android &amp; iOS</h2>
                 </div>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[0, 1, 2, 3].map((index) => (
+                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                  {portfolioData.projects.map((project, index) => (
                     <motion.div
-                      key={index}
+                      key={project.title}
                       variants={iconMotion}
                       transition={{ delay: 0.15 + index * 0.08, duration: 0.8, ease: 'easeOut' }}
-                      className="flex h-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-[0_20px_60px_-40px_rgba(16,185,129,0.3)]"
+                      className="flex w-[104px] flex-col items-center gap-2 rounded-3xl border border-white/10 bg-white/5 p-4 shadow-[0_20px_60px_-40px_rgba(16,185,129,0.3)]"
                     >
-                      <SiAndroid className="h-8 w-8 text-emerald-300" />
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white p-1.5">
+                        <img
+                          src={project.screenshotUrls?.[0] || project.screenshot}
+                          alt=""
+                          aria-hidden="true"
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <span className="text-center text-[11px] font-medium leading-tight text-slate-300">{project.title}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="mt-8 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.35em] text-emerald-300/80">Fast path</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">Design, develop, and ship polished Android product experiences with clear execution and strong engineering ownership.</p>
+                <div className="mt-8 grid grid-cols-3 gap-3 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/80 p-5">
+                  {heroStats.map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <p className="text-lg font-semibold text-white sm:text-xl">{stat.value}</p>
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-slate-400">{stat.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
