@@ -5,6 +5,30 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://yasirkhan.dev/projects/kenson-investments</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/projects/rxcalendar</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/projects/wealthygen</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/projects/gary-corp</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/projects/neighbors-trailer</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yasirkhan.dev/blog/mvvm-best-practices-for-android</loc>
     <priority>0.6</priority>
   </url>
