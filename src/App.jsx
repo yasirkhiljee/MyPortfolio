@@ -2,21 +2,23 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Hero from './sections/Hero'
 import Loader from './components/Loader'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const About = lazy(() => import('./sections/About'))
-const Stats = lazy(() => import('./sections/Stats'))
-const Timeline = lazy(() => import('./sections/Timeline'))
-const Process = lazy(() => import('./sections/Process'))
-const ProductShowcase = lazy(() => import('./sections/ProductShowcase'))
-const Testimonials = lazy(() => import('./sections/Testimonials'))
-const Blog = lazy(() => import('./sections/Blog'))
-const BlogPost = lazy(() => import('./sections/BlogPost'))
-const Architecture = lazy(() => import('./sections/Architecture'))
-const Personal = lazy(() => import('./sections/Personal'))
-const Contact = lazy(() => import('./sections/Contact'))
-const WhyHire = lazy(() => import('./sections/WhyHire'))
 const Skills = lazy(() => import('./sections/Skills'))
 const Projects = lazy(() => import('./sections/Projects'))
+const ProductShowcase = lazy(() => import('./sections/ProductShowcase'))
+const Stats = lazy(() => import('./sections/Stats'))
+const Architecture = lazy(() => import('./sections/Architecture'))
+const Process = lazy(() => import('./sections/Process'))
+const Timeline = lazy(() => import('./sections/Timeline'))
+const GitHub = lazy(() => import('./sections/GitHub'))
+const Blog = lazy(() => import('./sections/Blog'))
+const BlogPost = lazy(() => import('./sections/BlogPost'))
+const Personal = lazy(() => import('./sections/Personal'))
+const WhyHire = lazy(() => import('./sections/WhyHire'))
+const Contact = lazy(() => import('./sections/Contact'))
 
 function HomePage() {
   return (
@@ -24,18 +26,18 @@ function HomePage() {
       <Hero />
       <Suspense fallback={<Loader />}>
         <About />
+        <Skills />
+        <Projects />
         <ProductShowcase />
         <Stats />
-        <Timeline />
         <Architecture />
         <Process />
-        <Testimonials />
+        <Timeline />
+        <GitHub />
         <Blog />
         <Personal />
         <WhyHire />
         <Contact />
-        <Skills />
-        <Projects />
       </Suspense>
     </main>
   )
@@ -43,18 +45,24 @@ function HomePage() {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route
-        path="/blog/:slug"
-        element={
-          <Suspense fallback={<Loader />}>
-            <BlogPost />
-          </Suspense>
-        }
-      />
-      <Route path="*" element={<HomePage />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/blog/:slug"
+          element={
+            <main id="main-content" className="bg-[#030712] pt-[73px] text-white">
+              <Suspense fallback={<Loader />}>
+                <BlogPost />
+              </Suspense>
+            </main>
+          }
+        />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+      <Footer />
+    </>
   )
 }
 

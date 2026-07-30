@@ -24,22 +24,20 @@ const iconMotion = {
 }
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState('')
+  const [animatedText, setAnimatedText] = useState('')
   const [cursorVisible, setCursorVisible] = useState(true)
   const prefersReducedMotion = usePrefersReducedMotion()
-  const { title, subtitle, intro, resume, projectsAnchor, contactAnchor } = portfolioData.hero
+  const { title, subtitle, intro, projectsAnchor, contactAnchor } = portfolioData.hero
+  const displayText = prefersReducedMotion ? intro : animatedText
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setDisplayText(intro)
-      return undefined
-    }
+    if (prefersReducedMotion) return undefined
 
     let index = 0
     const timer = window.setInterval(() => {
-      setDisplayText(intro.slice(0, index + 1))
       index += 1
-      if (index > intro.length) {
+      setAnimatedText(intro.slice(0, index))
+      if (index >= intro.length) {
         window.clearInterval(timer)
       }
     }, 45)
@@ -86,15 +84,7 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            <motion.div variants={cardVariants} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(4,auto)]">
-              <a
-                href={resume}
-                download
-                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2"
-                aria-label="Download resume"
-              >
-                Download Resume
-              </a>
+            <motion.div variants={cardVariants} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(3,auto)]">
               <a
                 href={projectsAnchor}
                 className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2"
@@ -114,12 +104,12 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-slate-950/90 p-6 shadow-[0_40px_120px_-70px_rgba(0,0,0,0.9)] backdrop-blur-xl">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.14),_transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(56,189,248,0.12),_transparent_25%)]" aria-hidden="true" />
               <div className="relative rounded-[32px] border border-white/10 bg-slate-900/95 p-6 shadow-[inset_0_0_60px_rgba(0,0,0,0.35)]">
-                <div className="mb-6 flex items-center justify-between">
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
                   <span className="rounded-full border border-emerald-300/15 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-emerald-300">ANDROID</span>
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-200">Premium</span>
                 </div>
                 <div className="rounded-[24px] border border-white/10 bg-slate-950/90 p-6 shadow-[inset_0_0_40px_rgba(0,0,0,0.35)]">
-                  <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Mobile-first apps</p>
+                  <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Now shipping</p>
                   <h2 className="mt-3 text-3xl font-semibold text-white">Mobile-first apps</h2>
                 </div>
 

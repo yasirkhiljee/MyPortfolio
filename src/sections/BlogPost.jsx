@@ -3,13 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import portfolioData from '../data/portfolioData'
 import SectionWrapper from '../components/SectionWrapper'
 import SectionHeading from '../components/SectionHeading'
-
-function formatTitle(slug) {
-  return slug
-    .split('-')
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(' ')
-}
+import useDocumentMeta from '../hooks/useDocumentMeta'
 
 export default function BlogPost() {
   const { slug } = useParams()
@@ -17,6 +11,11 @@ export default function BlogPost() {
   const post = useMemo(
     () => portfolioData.blog.find((item) => item.slug === slug),
     [slug]
+  )
+
+  useDocumentMeta(
+    post ? `${post.title} | Yasir Khan` : 'Article not found | Yasir Khan',
+    post?.seoSummary
   )
 
   if (!post) {

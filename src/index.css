@@ -56,4 +56,14 @@
   a {
     color: inherit;
   }
+
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+
+  /* Without this, a grid/flex item's content-based min-width can force its track wider than the viewport instead of wrapping. */
+  .grid > *,
+  .flex > * {
+    min-width: 0;
+  }
 }

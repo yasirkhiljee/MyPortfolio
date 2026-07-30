@@ -5,25 +5,21 @@ import SectionWrapper from '../components/SectionWrapper'
 import portfolioData from '../data/portfolioData'
 import { fadeIn, staggerChildren } from '../utils/animations'
 
-function ContributionGrid() {
-  const rows = 6
-  const columns = 14
-  const colors = ['bg-slate-800', 'bg-emerald-500/20', 'bg-emerald-500/40', 'bg-emerald-500/60', 'bg-emerald-500/80']
+const CONTRIBUTION_ROWS = 6
+const CONTRIBUTION_COLUMNS = 14
+const CONTRIBUTION_COLORS = ['bg-slate-800', 'bg-emerald-500/20', 'bg-emerald-500/40', 'bg-emerald-500/60', 'bg-emerald-500/80']
+const CONTRIBUTION_CELLS = Array.from({ length: CONTRIBUTION_ROWS * CONTRIBUTION_COLUMNS }, (_, index) => (index * 37) % CONTRIBUTION_COLORS.length)
 
+function ContributionGrid() {
   return (
-    <div className="grid gap-1 rounded-3xl border border-white/10 bg-slate-950/70 p-4 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
-      {Array.from({ length: rows }).map((_, rowIndex) => (
-        <div key={rowIndex} className="grid grid-cols-14 gap-1">
-          {Array.from({ length: columns }).map((_, columnIndex) => {
-            const intensity = Math.floor(Math.random() * colors.length)
-            return (
-              <div
-                key={`${rowIndex}-${columnIndex}`}
-                className={`${colors[intensity]} h-4 w-4 rounded-sm border border-white/5`}
-              />
-            )
-          })}
-        </div>
+    <div
+      className="grid gap-1 rounded-3xl border border-white/10 bg-slate-950/70 p-4 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]"
+      style={{ gridTemplateColumns: `repeat(${CONTRIBUTION_COLUMNS}, minmax(0, 1fr))` }}
+      role="img"
+      aria-label="Illustrative GitHub contribution graph"
+    >
+      {CONTRIBUTION_CELLS.map((intensity, index) => (
+        <div key={index} className={`${CONTRIBUTION_COLORS[intensity]} h-4 w-4 rounded-sm border border-white/5`} />
       ))}
     </div>
   )

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yasirkhan.dev/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/mvvm-best-practices-for-android</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/coroutines-explained-basics-to-best-practices</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/room-database-guide-for-android</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/clean-architecture-for-mobile-teams</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/bluetooth-printing-on-android</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yasirkhan.dev/blog/android-performance-optimization-tips</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>

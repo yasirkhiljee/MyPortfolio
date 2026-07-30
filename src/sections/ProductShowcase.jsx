@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaMobileAlt, FaBolt, FaShieldAlt, FaThermometerHalf } from 'react-icons/fa'
+import { FaBolt, FaShieldAlt, FaThermometerHalf } from 'react-icons/fa'
 import SectionHeading from '../components/SectionHeading'
 import SectionWrapper from '../components/SectionWrapper'
 import { fadeIn, staggerChildren } from '../utils/animations'
@@ -25,6 +25,12 @@ const productScreens = [
     accent: 'violet',
   },
 ]
+
+const accentClasses = {
+  emerald: { text: 'text-emerald-300', panel: 'border-emerald-500/10 bg-emerald-500/10' },
+  cyan: { text: 'text-cyan-300', panel: 'border-cyan-500/10 bg-cyan-500/10' },
+  violet: { text: 'text-violet-300', panel: 'border-violet-500/10 bg-violet-500/10' },
+}
 
 const highlights = [
   {
@@ -75,7 +81,8 @@ export default function ProductShowcase() {
                   key={item.title}
                   type="button"
                   onClick={() => setActive(index)}
-                  className={`rounded-3xl border px-5 py-4 text-left transition ${
+                  aria-pressed={index === active}
+                  className={`rounded-3xl border px-5 py-4 text-left transition focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#02050d] ${
                     index === active
                       ? 'border-emerald-400/40 bg-emerald-500/10 text-white'
                       : 'border-white/10 bg-white/5 text-slate-300 hover:border-emerald-400/20 hover:bg-white/10'
@@ -87,20 +94,30 @@ export default function ProductShowcase() {
               ))}
             </div>
 
-            <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerChildren}
+              className="rounded-[36px] border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 {highlights.map((item) => (
-                  <div key={item.title} className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 transition hover:border-emerald-400/30">
+                  <motion.div
+                    key={item.title}
+                    variants={fadeIn}
+                    className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 transition hover:border-emerald-400/30"
+                  >
                     <item.icon className="h-6 w-6 text-emerald-300" aria-hidden="true" />
                     <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="relative mx-auto max-w-md">
+          <div className="relative mx-auto w-full max-w-md">
             <div className="h-[680px] w-full rounded-[48px] border border-white/10 bg-slate-950/90 p-6 shadow-[0_40px_120px_-70px_rgba(0,0,0,0.9)]">
               <div className="relative h-full overflow-hidden rounded-[36px] border border-white/10 bg-slate-900/90 shadow-inner shadow-emerald-500/10">
                 <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-slate-950/80 to-transparent" />
@@ -118,10 +135,10 @@ export default function ProductShowcase() {
                   <div className="relative h-full rounded-[32px] border border-white/10 bg-[#071017] p-6 shadow-[inset_0_0_60px_rgba(0,0,0,0.4)]">
                     <div className="mb-6 flex items-center justify-between">
                       <span className="rounded-full bg-slate-800 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-400">{screen.title}</span>
-                      <span className={`rounded-full px-3 py-1 text-xs font-semibold text-${screen.accent}-300`}>Live</span>
+                      <span className={`rounded-full px-3 py-1 text-xs font-semibold ${accentClasses[screen.accent].text}`}>Live</span>
                     </div>
                     <div className="grid gap-5">
-                      <div className={`rounded-[28px] border border-${screen.accent}-500/10 bg-${screen.accent}-500/10 p-5 text-sm text-white shadow-[0_20px_80px_-60px_rgba(34,197,94,0.25)]`}>
+                      <div className={`rounded-[28px] border p-5 text-sm text-white shadow-[0_20px_80px_-60px_rgba(34,197,94,0.25)] ${accentClasses[screen.accent].panel}`}>
                         <p className="font-semibold">{screen.subtitle}</p>
                       </div>
                       {screen.labels.map((label) => (

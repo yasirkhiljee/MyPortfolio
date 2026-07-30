@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaExternalLinkAlt, FaBookOpen } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaBookOpen, FaGithub } from 'react-icons/fa'
 import { cardMotion } from '../utils/animations'
 
 export default function ProjectCard({ project, index }) {

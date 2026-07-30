@@ -1,17 +1,6 @@
 import { motion } from 'framer-motion'
 import { cardMotion } from '../utils/animations'
 
-const getStars = (rating) => {
-  const fullStars = Math.floor(rating)
-  const halfStar = rating % 1 >= 0.5
-  const stars = Array.from({ length: 5 }, (_, index) => {
-    if (index < fullStars) return '★'
-    if (index === fullStars && halfStar) return '☆'
-    return '☆'
-  })
-  return stars.join(' ')
-}
-
 export default function SkillCard({ title, rating }) {
   return (
     <motion.article

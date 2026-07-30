@@ -1,6 +1,3 @@
-import { SiAndroid, SiKotlin } from 'react-icons/si'
-import { FaCode, FaServer } from 'react-icons/fa'
-
 const portfolioData = {
   hero: {
     title: 'Yasir Khan',
@@ -27,6 +24,26 @@ const portfolioData = {
     ],
     workflow:
       'I collaborate with product, design, and engineering teams to ship polished apps that scale and remain reliable after launch.',
+  },
+  contact: {
+    items: [
+      { icon: 'map', label: 'Location', value: 'Karachi, Pakistan' },
+      { icon: 'globe', label: 'Availability', value: 'Open to Remote' },
+      { icon: 'envelope', label: 'Email', value: 'yasir.khiljee@gmail.com', href: 'mailto:yasir.khiljee@gmail.com' },
+      { icon: 'phone', label: 'Phone', value: '+92 3425440359', href: 'tel:+923425440359' },
+      {
+        icon: 'linkedin',
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/yasirkhiljee',
+        href: 'https://www.linkedin.com/in/yasirkhiljee/',
+      },
+      {
+        icon: 'upwork',
+        label: 'Upwork',
+        value: 'upwork.com/freelancers/~018b4fd3dfbd6aeffb',
+        href: 'https://www.upwork.com/freelancers/~018b4fd3dfbd6aeffb?mp_source=share',
+      },
+    ],
   },
   skills: [
     { title: 'Android', rating: 5 },
