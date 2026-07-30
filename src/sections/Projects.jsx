@@ -9,6 +9,8 @@ import { fadeIn } from '../utils/animations'
 import { slugify } from '../utils/slugify'
 
 function FeaturedProject({ project }) {
+  const detailPath = `/projects/${slugify(project.title)}`
+
   return (
     <motion.section
       initial="hidden"
@@ -57,99 +59,14 @@ function FeaturedProject({ project }) {
           {project.tag}
         </span>
         <h2 className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-          {project.title}
+          <Link to={detailPath} className="hover:text-emerald-300">
+            {project.title}
+          </Link>
         </h2>
         <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{project.description}</p>
 
-        <div className="grid gap-4">
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Problem</p>
-            <p className="mt-3 leading-7 text-slate-300">{project.challenge}</p>
-          </div>
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Solution</p>
-            <p className="mt-3 leading-7 text-slate-300">{project.solution}</p>
-          </div>
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Architecture</p>
-            <p className="mt-3 leading-7 text-slate-300">{project.architecture}</p>
-          </div>
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Outcome</p>
-            <p className="mt-3 leading-7 text-slate-300">{project.outcome}</p>
-          </div>
-        </div>
-
-        {project.challenges && (
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Challenges</p>
-            <ul className="mt-3 space-y-3 text-slate-300">
-              {project.challenges.map((item) => (
-                <li key={item} className="list-disc pl-5 leading-7">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {project.screens && (
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Screens</p>
-            <ul className="mt-3 space-y-3 text-slate-300">
-              {project.screens.map((item) => (
-                <li key={item} className="list-disc pl-5 leading-7">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {project.codeSnippets && (
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Code snippets</p>
-            <div className="mt-3 space-y-6 text-slate-300">
-              {project.codeSnippets.map((snippet) => (
-                <div key={snippet.title}>
-                  <p className="text-sm font-semibold text-white">{snippet.title}</p>
-                  <pre className="mt-3 overflow-x-auto rounded-3xl border border-white/10 bg-slate-900 p-4 text-xs leading-6 text-slate-300">
-                    <code>{snippet.code}</code>
-                  </pre>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {project.performanceImprovements && (
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Performance improvements</p>
-            <ul className="mt-3 space-y-3 text-slate-300">
-              {project.performanceImprovements.map((item) => (
-                <li key={item} className="list-disc pl-5 leading-7">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {project.lessonsLearned && (
-          <div className="rounded-3xl bg-slate-950/70 p-6 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.9)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/90">Lessons learned</p>
-            <ul className="mt-3 space-y-3 text-slate-300">
-              {project.lessonsLearned.map((item) => (
-                <li key={item} className="list-disc pl-5 leading-7">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
         <div className="flex flex-wrap gap-3">
-          {project.tech.map((label) => (
+          {project.tech.slice(0, 5).map((label) => (
             <span key={label} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
               {label}
             </span>
@@ -177,23 +94,12 @@ function FeaturedProject({ project }) {
               <FaExternalLinkAlt className="h-4 w-4" /> App Store
             </a>
           )}
-          {project.caseStudy && project.caseStudy !== '#' ? (
-            <a
-              href={project.caseStudy}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
-            >
-              <FaBookOpen className="h-4 w-4" /> Case Study
-            </a>
-          ) : (
-            <Link
-              to={`/projects/${slugify(project.title)}`}
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
-            >
-              <FaBookOpen className="h-4 w-4" /> Case Study
-            </Link>
-          )}
+          <Link
+            to={detailPath}
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
+          >
+            <FaBookOpen className="h-4 w-4" /> View Case Study
+          </Link>
         </div>
       </div>
     </motion.section>
