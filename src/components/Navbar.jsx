@@ -8,8 +8,9 @@ import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion'
 const NAV_LINKS = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
   { id: 'timeline', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'process', label: 'Process' },
   { id: 'blog', label: 'Blog' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -68,8 +69,11 @@ export default function Navbar() {
           <Link
             to="/"
             onClick={closeMenu}
-            className="text-lg font-semibold tracking-[-0.03em] text-white transition hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-sm"
+            className="flex items-center gap-2.5 text-lg font-semibold tracking-[-0.03em] text-white transition hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-sm"
           >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 text-xs font-bold text-emerald-300">
+              YK
+            </span>
             Yasir Khan
           </Link>
 

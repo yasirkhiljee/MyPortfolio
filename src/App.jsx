@@ -24,9 +24,9 @@ function HomePage() {
       <Suspense fallback={<Loader />}>
         <About />
         <Skills />
+        <Timeline />
         <Projects />
         <Process />
-        <Timeline />
         <Blog />
         <WhyHire />
         <Contact />

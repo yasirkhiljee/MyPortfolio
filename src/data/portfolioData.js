@@ -1,12 +1,12 @@
 const portfolioData = {
   hero: {
     title: 'Yasir Khan',
-    subtitle: 'Senior Android & React Native Engineer | 8+ Years Shipping Mobile Products',
-    intro: 'React Native • Android • Healthcare • Finance • Marketplaces • Cross-platform Delivery',
+    role: 'Senior Android & React Native Engineer',
+    description:
+      'Building scalable Android & React Native apps for fintech, healthcare, and marketplace products — with clean architecture, resilient offline flows, and elegant product thinking.',
     resume: '/resume.pdf',
     projectsAnchor: '#projects',
     contactAnchor: '#contact',
-    github: 'https://github.com/',
   },
   about: {
     heading: 'Experienced Android and React Native engineer shipping high-value mobile products.',
@@ -47,24 +47,110 @@ const portfolioData = {
   },
   skillCategories: [
     {
-      label: 'Languages & UI',
-      items: ['Kotlin', 'Java', 'Jetpack Compose', 'React Native', 'TypeScript', 'JavaScript'],
+      label: 'Android Core',
+      tag: 'Native product engineering',
+      items: ['Android', 'Kotlin', 'Java', 'Jetpack Compose', 'XML', 'Coroutines & Flow'],
     },
     {
-      label: 'Architecture & State',
-      items: ['MVVM', 'Clean Architecture', 'Coroutines & Flow', 'Redux', 'Room'],
+      label: 'Architecture',
+      tag: 'Reliable foundations',
+      items: ['MVVM', 'Clean Architecture', 'Room', 'Repository Pattern', 'Modularization', 'Offline-first'],
     },
     {
-      label: 'Platform & Integrations',
-      items: ['Firebase', 'REST APIs', 'Bluetooth', 'Authentication', 'Payments'],
+      label: 'Integrations',
+      tag: 'Production systems',
+      items: ['Firebase', 'REST APIs', 'Retrofit', 'Bluetooth', 'POS Hardware', 'Authentication', 'Payments'],
+    },
+    {
+      label: 'Cross-Platform & Delivery',
+      tag: 'Team-ready workflows',
+      items: ['React Native', 'TypeScript', 'Redux', 'Git', 'CI/CD Mindset', 'Remote Collaboration'],
     },
   ],
   timeline: [
-    { year: '2022 — Present', role: 'Senior Android Engineer', company: 'Logicose' },
-    { year: '2021', role: 'Android Engineer', company: 'Innovatech' },
-    { year: '2020', role: 'Android Developer', company: 'OranjeTech' },
-    { year: '2019', role: 'Mobile Developer', company: 'Ovex' },
-    { year: '2018', role: 'Android Intern', company: 'Wide Range' },
+    {
+      year: '2022 — Present',
+      role: 'Senior Android Engineer',
+      company: 'Logicose',
+      description:
+        'Built and maintained business-critical Android applications with a focus on reliability, performance, and clean feature delivery.',
+      achievements: [
+        'Improved feature delivery through reusable architecture patterns and clearer module boundaries.',
+        'Implemented robust API-driven workflows with careful error handling and a production-monitoring mindset.',
+        'Collaborated with cross-functional stakeholders to turn business requirements into stable mobile features.',
+      ],
+      responsibilities: [
+        'Develop Android features in Kotlin and Java.',
+        'Integrate REST APIs, Firebase services, and local persistence.',
+        'Review code, debug production issues, and refine UX details.',
+      ],
+      technologies: ['Kotlin', 'Java', 'MVVM', 'Retrofit', 'Firebase', 'Room', 'Git'],
+    },
+    {
+      year: '2021',
+      role: 'Android Engineer',
+      company: 'Innovatech',
+      description: 'Delivered new features and stability improvements for consumer Android apps, working closely with design and QA.',
+      achievements: [
+        'Reduced crash rates by tightening lifecycle handling and defensive null-safety practices.',
+        'Partnered with design to ship polished, accessible UI components.',
+        'Mentored junior developers on Kotlin best practices.',
+      ],
+      responsibilities: [
+        'Build and maintain Android features in Kotlin.',
+        'Write unit tests and participate in code reviews.',
+        'Triage and fix production bugs reported by users.',
+      ],
+      technologies: ['Kotlin', 'Java', 'MVVM', 'Firebase', 'Git'],
+    },
+    {
+      year: '2020',
+      role: 'Android Developer',
+      company: 'OranjeTech',
+      description: 'Built cross-functional mobile features across Android, contributing to release cycles and QA processes.',
+      achievements: [
+        "Streamlined the release process by improving build configuration and versioning practices.",
+        'Contributed to a shared component library used across multiple app modules.',
+      ],
+      responsibilities: [
+        'Implement UI screens and business logic in Java and Kotlin.',
+        'Coordinate with the backend team on API contracts.',
+        'Support QA during release testing cycles.',
+      ],
+      technologies: ['Java', 'Kotlin', 'XML', 'REST APIs', 'Git'],
+    },
+    {
+      year: '2019',
+      role: 'Mobile Developer',
+      company: 'Ovex',
+      description: "Contributed to early-stage mobile products, building core screens and integrating third-party services.",
+      achievements: [
+        "Helped ship the app's first stable public release.",
+        'Integrated push notifications and analytics to support product decisions.',
+      ],
+      responsibilities: [
+        'Develop Android screens and navigation flows.',
+        'Integrate SDKs for notifications and analytics.',
+        'Fix bugs identified during internal testing.',
+      ],
+      technologies: ['Java', 'Android SDK', 'Firebase', 'Git'],
+    },
+    {
+      year: '2018',
+      role: 'Android Intern',
+      company: 'Wide Range Digital Solutions',
+      description: 'Started my Android journey building small features and learning production engineering practices.',
+      achievements: [
+        'Delivered several UI features under senior engineer guidance.',
+        'Learned Git workflows, code review practices, and Android fundamentals.',
+      ],
+      responsibilities: [
+        'Assist senior engineers with feature implementation.',
+        'Fix minor bugs and write basic unit tests.',
+        'Learn Android fundamentals and team workflows.',
+      ],
+      technologies: ['Java', 'Android SDK', 'XML', 'Git'],
+    },
   ],
   stats: [
     { value: '8+', label: 'Years Experience' },

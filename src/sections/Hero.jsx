@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { HiOutlineLocationMarker } from 'react-icons/hi'
 import portfolioData from '../data/portfolioData'
 import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion'
+import { CONTACT_ICONS } from '../utils/contactIcons'
 
 const textVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -26,9 +28,11 @@ export default function Hero() {
   const [animatedText, setAnimatedText] = useState('')
   const [cursorVisible, setCursorVisible] = useState(true)
   const prefersReducedMotion = usePrefersReducedMotion()
-  const { title, subtitle, intro, projectsAnchor, contactAnchor } = portfolioData.hero
-  const displayText = prefersReducedMotion ? intro : animatedText
+  const { title, role, description, projectsAnchor, contactAnchor } = portfolioData.hero
+  const displayText = prefersReducedMotion ? role : animatedText
   const heroStats = portfolioData.stats.slice(0, 3)
+  const location = portfolioData.contact.items.find((item) => item.label === 'Location')
+  const socialLinks = portfolioData.contact.items.filter((item) => item.icon === 'linkedin' || item.icon === 'upwork')
 
   useEffect(() => {
     if (prefersReducedMotion) return undefined
@@ -36,14 +40,14 @@ export default function Hero() {
     let index = 0
     const timer = window.setInterval(() => {
       index += 1
-      setAnimatedText(intro.slice(0, index))
-      if (index >= intro.length) {
+      setAnimatedText(role.slice(0, index))
+      if (index >= role.length) {
         window.clearInterval(timer)
       }
     }, 45)
 
     return () => window.clearInterval(timer)
-  }, [intro, prefersReducedMotion])
+  }, [role, prefersReducedMotion])
 
   useEffect(() => {
     const blink = window.setInterval(() => {
@@ -69,22 +73,35 @@ export default function Hero() {
           className="grid w-full gap-10 rounded-[40px] border border-white/10 bg-white/5 p-8 shadow-[0_60px_140px_-70px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:p-12"
         >
           <div className="space-y-8">
-            <motion.div variants={cardVariants} className="inline-flex rounded-full border border-emerald-300/15 bg-emerald-500/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300 shadow-sm shadow-emerald-400/10">
-              {subtitle}
+            <motion.div variants={cardVariants} className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300/15 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+                Open for Remote Work Worldwide
+              </span>
+              {location && (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-200">
+                  <HiOutlineLocationMarker className="h-3.5 w-3.5" aria-hidden="true" />
+                  {location.value}
+                </span>
+              )}
+              <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-200">
+                {heroStats[0]?.value} Years
+              </span>
             </motion.div>
 
             <motion.div variants={cardVariants} className="space-y-5">
-              <p className="text-sm uppercase tracking-[0.35em] text-emerald-300/80">Hello, I’m</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-emerald-300/80">Hi, I&apos;m</p>
               <h1 id="hero-heading" className="text-5xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
                 {title}
               </h1>
-              <p id="hero-description" className="max-w-3xl text-lg leading-9 text-slate-300 sm:text-xl">
+              <p id="hero-description" className="font-mono text-lg text-emerald-300 sm:text-xl">
                 {displayText}
                 <span className={`inline-block w-1 ${cursorVisible ? 'h-6 bg-emerald-300' : 'h-6 bg-transparent'} align-middle`} aria-hidden="true" />
               </p>
+              <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{description}</p>
             </motion.div>
 
-            <motion.div variants={cardVariants} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(3,auto)]">
+            <motion.div variants={cardVariants} className="flex flex-wrap items-center gap-4">
               <a
                 href={projectsAnchor}
                 className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2"
@@ -97,13 +114,34 @@ export default function Hero() {
               >
                 Hire Me
               </a>
+
+              <div className="flex items-center gap-3">
+                {socialLinks.map((item) => {
+                  const Icon = CONTACT_ICONS[item.icon]
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.label}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-emerald-400/30 hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  )
+                })}
+              </div>
             </motion.div>
           </div>
 
           <motion.div variants={cardVariants} className="relative mx-auto max-w-xl">
+            <div aria-hidden="true" className="absolute -inset-3 rounded-[48px] border border-white/5 bg-white/[0.02]" />
             <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-slate-950/90 p-6 shadow-[0_40px_120px_-70px_rgba(0,0,0,0.9)] backdrop-blur-xl">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.14),_transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(56,189,248,0.12),_transparent_25%)]" aria-hidden="true" />
               <div className="relative rounded-[32px] border border-white/10 bg-slate-900/95 p-6 shadow-[inset_0_0_60px_rgba(0,0,0,0.35)]">
+                <div aria-hidden="true" className="mx-auto mb-5 h-1.5 w-16 rounded-full bg-white/10" />
+
                 <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
                   <span className="rounded-full border border-emerald-300/15 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-emerald-300">React Native</span>
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-slate-200">Android</span>

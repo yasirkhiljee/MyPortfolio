@@ -17,9 +17,9 @@ export default function Skills() {
         className="relative mx-auto max-w-7xl space-y-10"
       >
         <SectionHeading
-          label="Tech Stack"
-          title="Tools I use to ship Android & React Native products."
-          description="Grouped by how they show up in real project work — languages and UI, architecture and state, and the platform integrations that make apps production-ready."
+          label="Skills"
+          title="Technology badges, not progress bars."
+          description="A focused toolkit for Android products that need polished UI, robust architecture, hardware integration, and dependable real-time behavior."
         />
 
         <div className="space-y-6">
@@ -28,7 +28,12 @@ export default function Skills() {
               key={category.label}
               className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_-60px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-8"
             >
-              <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{category.label}</p>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-lg font-semibold text-white">{category.label}</p>
+                <span className="rounded-full border border-white/10 bg-slate-950/60 px-4 py-1.5 text-xs text-slate-400">
+                  {category.tag}
+                </span>
+              </div>
               <div className="mt-5 flex flex-wrap gap-3">
                 {category.items.map((item) => (
                   <SkillCard key={item} title={item} />

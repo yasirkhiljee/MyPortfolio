@@ -1,7 +1,8 @@
-import { SiKotlin, SiJetpackcompose, SiReact, SiTypescript, SiJavascript, SiRedux, SiFirebase, SiBluetooth } from 'react-icons/si'
+import { SiAndroid, SiKotlin, SiJetpackcompose, SiReact, SiTypescript, SiJavascript, SiRedux, SiFirebase, SiBluetooth, SiGit } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
 export const SKILL_ICONS = {
+  Android: SiAndroid,
   Kotlin: SiKotlin,
   Java: FaJava,
   'Jetpack Compose': SiJetpackcompose,
@@ -11,4 +12,5 @@ export const SKILL_ICONS = {
   Redux: SiRedux,
   Firebase: SiFirebase,
   Bluetooth: SiBluetooth,
+  Git: SiGit,
 }
