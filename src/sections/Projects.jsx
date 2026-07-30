@@ -20,23 +20,29 @@ function FeaturedProject({ project }) {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,197,94,0.18),transparent_20%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),transparent_30%)]" aria-hidden="true" />
             <div className="relative h-[360px] w-full p-6">
               <div className="h-full rounded-[24px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]">
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="h-3 w-20 rounded-full bg-slate-800/70" />
-                  <span className="h-3 w-8 rounded-full bg-slate-800/70" />
-                </div>
-                <div className="grid gap-4">
-                  <div className="h-16 rounded-3xl bg-slate-800/80" />
-                  <div className="grid gap-3">
-                    <div className="h-4 rounded-full bg-slate-800/70 w-5/6" />
-                    <div className="h-4 rounded-full bg-slate-800/70 w-3/4" />
-                    <div className="h-4 rounded-full bg-slate-800/70 w-2/3" />
+                {project.screenshotUrls && project.screenshotUrls.length > 0 ? (
+                  <img
+                    src={project.screenshotUrls[0]}
+                    alt={project.screenshotAlt}
+                    className="absolute inset-0 h-full w-full rounded-[20px] object-cover"
+                  />
+                ) : project.screenshot ? (
+                  <img src={project.screenshot} alt={project.screenshotAlt} className="absolute inset-0 h-full w-full rounded-[20px] object-cover" />
+                ) : (
+                  <div className="relative z-10 grid gap-4">
+                    <div className="h-16 rounded-3xl bg-slate-800/80" />
+                    <div className="grid gap-3">
+                      <div className="h-4 rounded-full bg-slate-800/70 w-5/6" />
+                      <div className="h-4 rounded-full bg-slate-800/70 w-3/4" />
+                      <div className="h-4 rounded-full bg-slate-800/70 w-2/3" />
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="h-12 rounded-3xl bg-slate-800/80" />
+                      <div className="h-12 rounded-3xl bg-slate-800/80" />
+                      <div className="h-12 rounded-3xl bg-slate-800/80" />
+                    </div>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="h-12 rounded-3xl bg-slate-800/80" />
-                    <div className="h-12 rounded-3xl bg-slate-800/80" />
-                    <div className="h-12 rounded-3xl bg-slate-800/80" />
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

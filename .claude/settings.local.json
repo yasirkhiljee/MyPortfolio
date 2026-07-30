@@ -42,7 +42,8 @@
       "Bash(node drive16.js)",
       "Bash(node drive17.js)",
       "Bash(node drive18.js)",
-      "Bash(node drive19.js)"
+      "Bash(node drive19.js)",
+      "Bash(lsof -ti:5173)"
     ]
   }
 }

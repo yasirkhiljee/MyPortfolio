@@ -13,7 +13,8 @@ const Stats = lazy(() => import('./sections/Stats'))
 const Architecture = lazy(() => import('./sections/Architecture'))
 const Process = lazy(() => import('./sections/Process'))
 const Timeline = lazy(() => import('./sections/Timeline'))
-const GitHub = lazy(() => import('./sections/GitHub'))
+// GitHub section removed
+const ProjectDetail = lazy(() => import('./sections/ProjectDetail'))
 const Blog = lazy(() => import('./sections/Blog'))
 const BlogPost = lazy(() => import('./sections/BlogPost'))
 const Personal = lazy(() => import('./sections/Personal'))
@@ -33,7 +34,6 @@ function HomePage() {
         <Architecture />
         <Process />
         <Timeline />
-        <GitHub />
         <Blog />
         <Personal />
         <WhyHire />
@@ -49,6 +49,16 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route
+          path="/projects/:slug"
+          element={
+            <main id="main-content" className="bg-[#030712] pt-[73px] text-white">
+              <Suspense fallback={<Loader />}>
+                <ProjectDetail />
+              </Suspense>
+            </main>
+          }
+        />
         <Route
           path="/blog/:slug"
           element={

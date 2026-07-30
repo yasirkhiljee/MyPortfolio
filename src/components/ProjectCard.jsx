@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaExternalLinkAlt, FaBookOpen, FaGithub } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { cardMotion } from '../utils/animations'
 
 export default function ProjectCard({ project, index }) {
@@ -62,7 +63,13 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-950/20 p-4 shadow-inner shadow-emerald-500/5">
-          {project.screenshot ? (
+          {project.screenshotUrls && project.screenshotUrls.length > 0 ? (
+            <img
+              src={project.screenshotUrls[0]}
+              alt={project.screenshotAlt}
+              className="h-full w-full rounded-3xl object-cover"
+            />
+          ) : project.screenshot ? (
             <img src={project.screenshot} alt={project.screenshotAlt} className="h-full w-full rounded-3xl object-cover" />
           ) : (
             <div className="flex h-48 items-center justify-center rounded-3xl bg-slate-900 text-sm text-slate-400">
@@ -104,23 +111,42 @@ export default function ProjectCard({ project, index }) {
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        {project.live && (
+        {project.stores && project.stores.android && (
           <a
-            href={project.live}
+            href={project.stores.android}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10"
           >
-            <FaExternalLinkAlt className="h-4 w-4" /> Live App
+            <FaExternalLinkAlt className="h-4 w-4" /> Play Store
           </a>
         )}
-        {project.caseStudy && (
+        {project.stores && project.stores.ios && (
+          <a
+            href={project.stores.ios}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10"
+          >
+            <FaExternalLinkAlt className="h-4 w-4" /> App Store
+          </a>
+        )}
+        {project.caseStudy && project.caseStudy !== '#' ? (
           <a
             href={project.caseStudy}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
           >
             <FaBookOpen className="h-4 w-4" /> Case Study
           </a>
+        ) : (
+          <Link
+            to={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
+          >
+            <FaBookOpen className="h-4 w-4" /> Case Study
+          </Link>
         )}
       </div>
     </motion.article>

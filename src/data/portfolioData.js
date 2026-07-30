@@ -13,7 +13,7 @@ const portfolioData = {
     description:
       'I build cross-platform mobile applications for healthcare, finance, home services, and rental marketplaces with polished UX, robust API integrations, and maintainable architecture.',
     highlights: [
-      '10+ years delivering Android and React Native applications across complex domains.',
+      '8+ years delivering Android and React Native applications across complex domains.',
       'Strong experience with mobile product delivery, feature development, and ongoing maintenance.',
       'Focus on reliability, performance, and user-centered product decisions.',
     ],
@@ -357,7 +357,7 @@ const portfolioData = {
       tag: 'Investment App',
       description:
         'A React Native investment platform for Android and iOS with polished portfolio, transaction, and market monitoring experiences.',
-      screenshot: null,
+      screenshot: '/assets/apps/kenson-inv/screenshot-1.jpg',
       screenshotAlt: 'Kenson Investments app screenshot placeholder',
       challenge:
         'The product needed seamless React Native development, strong API integration, and reliable financial workflows across Android and iOS.',
@@ -370,7 +370,15 @@ const portfolioData = {
       platforms: ['Android', 'iOS'],
       contribution:
         'React Native development, feature implementation, API integration, bug fixes, and production maintenance.',
-      live: 'https://play.google.com/store/apps/details?id=com.kensoninv',
+      stores: {
+        android: 'https://play.google.com/store/apps/details?id=com.kensoninv',
+        ios: 'https://apps.apple.com/us/app/kenson-inv/id6502995497',
+      },
+      screenshotUrls: [
+        '/assets/apps/kenson-inv/screenshot-1.jpg',
+        '/assets/apps/kenson-inv/screenshot-2.jpg',
+        '/assets/apps/kenson-inv/screenshot-3.jpg',
+      ],
       caseStudy: '#',
       challenges: [
         'Maintaining consistent behavior across Android and iOS.',
@@ -413,7 +421,15 @@ const portfolioData = {
       platforms: ['Android', 'iOS'],
       contribution:
         'Healthcare scheduling feature development, UI enhancements, performance optimizations, and app support.',
-      live: 'https://play.google.com/store/apps/details?id=com.rxcalendar',
+      stores: {
+        android: 'https://play.google.com/store/apps/details?id=com.rxcalendar',
+        ios: 'https://apps.apple.com/us/app/rxcalendar/id1631110058',
+      },
+      screenshotUrls: [
+        '/assets/apps/rxcalendar/screenshot-1.jpg',
+        '/assets/apps/rxcalendar/screenshot-2.jpg',
+        '/assets/apps/rxcalendar/screenshot-3.jpg',
+      ],
       caseStudy: '#',
       challenges: [
         'Ensuring smooth scheduling flows for healthcare users.',
@@ -456,7 +472,15 @@ const portfolioData = {
       platforms: ['Android', 'iOS'],
       contribution:
         'Financial app development, secure API integration, bug fixing, and optimization for cross-platform release.',
-      live: 'https://play.google.com/store/apps/details?id=com.wealthygen',
+      stores: {
+        android: 'https://play.google.com/store/apps/details?id=com.wealthygen',
+        ios: 'https://apps.apple.com/us/app/wealthygen-smart-money-app/id1633621020',
+      },
+      screenshotUrls: [
+        '/assets/apps/wealthygen/screenshot-1.jpg',
+        '/assets/apps/wealthygen/screenshot-2.jpg',
+        '/assets/apps/wealthygen/screenshot-3.jpg',
+      ],
       caseStudy: '#',
       challenges: [
         'Ensuring secure handling of financial data in the mobile app.',
@@ -499,7 +523,15 @@ const portfolioData = {
       platforms: ['Android', 'iOS'],
       contribution:
         'Home services platform development across customer, employee, and employer apps with booking, authentication, and UX enhancements.',
-      live: 'https://play.google.com/store/apps/details?id=com.gary_corp_customer',
+      stores: {
+        android: 'https://play.google.com/store/apps/details?id=com.gary_corp_customer',
+        ios: 'https://apps.apple.com/us/app/gary-corp-employee/id1638126851',
+      },
+      screenshotUrls: [
+        '/assets/apps/gary-corp/screenshot-1.jpg',
+        '/assets/apps/gary-corp/screenshot-2.jpg',
+        '/assets/apps/gary-corp/screenshot-3.jpg',
+      ],
       caseStudy: '#',
       challenges: [
         'Managing multiple user roles and distinct app experiences.',
@@ -542,7 +574,15 @@ const portfolioData = {
       platforms: ['Android', 'iOS'],
       contribution:
         'Marketplace feature enhancements, booking workflow improvements, payment integration, and reliability fixes for trailer rental apps.',
-      live: 'https://play.google.com/store/apps/details?id=com.neighbourstrailerowner',
+      stores: {
+        android: 'https://play.google.com/store/apps/details?id=com.neighbourstrailerowner',
+        ios: 'https://apps.apple.com/us/app/neighbors-trailer-owner/id1667847016',
+      },
+      screenshotUrls: [
+        '/assets/apps/neighbors-trailer/screenshot-1.jpg',
+        '/assets/apps/neighbors-trailer/screenshot-2.jpg',
+        '/assets/apps/neighbors-trailer/screenshot-3.jpg',
+      ],
       caseStudy: '#',
       challenges: [
         'Keeping marketplace booking workflows reliable and easy to use.',
