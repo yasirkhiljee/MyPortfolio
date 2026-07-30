@@ -1,10 +1,6 @@
-import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import portfolioData from '../data/portfolioData'
-
-function slugify(title) {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}
+import { slugify } from '../utils/slugify'
 
 export default function ProjectDetail() {
   const { slug } = useParams()

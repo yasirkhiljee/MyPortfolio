@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaExternalLinkAlt, FaBookOpen, FaGithub } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { cardMotion } from '../utils/animations'
+import { slugify } from '../utils/slugify'
 
 export default function ProjectCard({ project, index }) {
   return (
@@ -142,7 +143,7 @@ export default function ProjectCard({ project, index }) {
           </a>
         ) : (
           <Link
-            to={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            to={`/projects/${slugify(project.title)}`}
             className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
           >
             <FaBookOpen className="h-4 w-4" /> Case Study

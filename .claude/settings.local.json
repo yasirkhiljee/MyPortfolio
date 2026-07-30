@@ -43,7 +43,18 @@
       "Bash(node drive17.js)",
       "Bash(node drive18.js)",
       "Bash(node drive19.js)",
-      "Bash(lsof -ti:5173)"
+      "Bash(lsof -ti:5173)",
+      "Bash(grep -rn \"projects/\\\\$\\\\|/projects/\\\\|ProjectDetail\\\\|CaseStudy\" src/App.jsx src/sections/)",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)",
+      "Bash(git ls-remote *)",
+      "Bash(curl -sf http://localhost:5173)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"blog: %{http_code}\\\\n\" http://localhost:5173/blog/mvvm-best-practices-for-android)",
+      "Bash(curl -s -o /dev/null -w \"project detail: %{http_code}\\\\n\" http://localhost:5173/projects/kenson-investments)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(git check-ignore *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

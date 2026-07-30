@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { FaExternalLinkAlt, FaBookOpen } from 'react-icons/fa'
 import SectionHeading from '../components/SectionHeading'
 import SectionWrapper from '../components/SectionWrapper'
 import ProjectCard from '../components/ProjectCard'
 import portfolioData from '../data/portfolioData'
 import { fadeIn } from '../utils/animations'
+import { slugify } from '../utils/slugify'
 
 function FeaturedProject({ project }) {
   return (
@@ -154,33 +157,42 @@ function FeaturedProject({ project }) {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          {project.github && (
+          {project.stores?.android && (
             <a
-              href={project.github}
+              href={project.stores.android}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10"
             >
-              GitHub
+              <FaExternalLinkAlt className="h-4 w-4" /> Play Store
             </a>
           )}
-          {project.live && (
+          {project.stores?.ios && (
             <a
-              href={project.live}
+              href={project.stores.ios}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-emerald-400 hover:bg-white/10"
             >
-              Live App
+              <FaExternalLinkAlt className="h-4 w-4" /> App Store
             </a>
           )}
-          {project.caseStudy && (
+          {project.caseStudy && project.caseStudy !== '#' ? (
             <a
               href={project.caseStudy}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
             >
-              Case Study
+              <FaBookOpen className="h-4 w-4" /> Case Study
             </a>
+          ) : (
+            <Link
+              to={`/projects/${slugify(project.title)}`}
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 hover:text-white"
+            >
+              <FaBookOpen className="h-4 w-4" /> Case Study
+            </Link>
           )}
         </div>
       </div>
