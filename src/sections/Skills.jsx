@@ -18,13 +18,23 @@ export default function Skills() {
       >
         <SectionHeading
           label="Tech Stack"
-          title="Android-first tools I ship with every project."
-          description="Animated rating cards show core platform skills, architecture patterns, and runtime expertise at a glance."
+          title="Tools I use to ship Android & React Native products."
+          description="Grouped by how they show up in real project work — languages and UI, architecture and state, and the platform integrations that make apps production-ready."
         />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {portfolioData.skills.map((skill) => (
-            <SkillCard key={skill.title} title={skill.title} rating={skill.rating} />
+        <div className="space-y-6">
+          {portfolioData.skillCategories.map((category) => (
+            <div
+              key={category.label}
+              className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_-60px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-8"
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{category.label}</p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {category.items.map((item) => (
+                  <SkillCard key={item} title={item} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </motion.div>

@@ -45,16 +45,19 @@ const portfolioData = {
       },
     ],
   },
-  skills: [
-    { title: 'Android', rating: 5 },
-    { title: 'Kotlin', rating: 5 },
-    { title: 'Java', rating: 5 },
-    { title: 'Compose', rating: 4.5 },
-    { title: 'MVVM', rating: 5 },
-    { title: 'Coroutines', rating: 5 },
-    { title: 'Room', rating: 5 },
-    { title: 'Bluetooth', rating: 5 },
-    { title: 'Firebase', rating: 5 },
+  skillCategories: [
+    {
+      label: 'Languages & UI',
+      items: ['Kotlin', 'Java', 'Jetpack Compose', 'React Native', 'TypeScript', 'JavaScript'],
+    },
+    {
+      label: 'Architecture & State',
+      items: ['MVVM', 'Clean Architecture', 'Coroutines & Flow', 'Redux', 'Room'],
+    },
+    {
+      label: 'Platform & Integrations',
+      items: ['Firebase', 'REST APIs', 'Bluetooth', 'Authentication', 'Payments'],
+    },
   ],
   timeline: [
     { year: '2022 — Present', role: 'Senior Android Engineer', company: 'Logicose' },
