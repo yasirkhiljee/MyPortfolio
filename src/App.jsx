@@ -8,14 +8,13 @@ import Footer from './components/Footer'
 const About = lazy(() => import('./sections/About'))
 const Skills = lazy(() => import('./sections/Skills'))
 const Projects = lazy(() => import('./sections/Projects'))
-const ProductShowcase = lazy(() => import('./sections/ProductShowcase'))
 const Stats = lazy(() => import('./sections/Stats'))
 const Architecture = lazy(() => import('./sections/Architecture'))
 const Process = lazy(() => import('./sections/Process'))
 const Timeline = lazy(() => import('./sections/Timeline'))
-// GitHub section removed
 const ProjectDetail = lazy(() => import('./sections/ProjectDetail'))
 const Blog = lazy(() => import('./sections/Blog'))
+const BlogList = lazy(() => import('./sections/BlogList'))
 const BlogPost = lazy(() => import('./sections/BlogPost'))
 const Personal = lazy(() => import('./sections/Personal'))
 const WhyHire = lazy(() => import('./sections/WhyHire'))
@@ -29,7 +28,6 @@ function HomePage() {
         <About />
         <Skills />
         <Projects />
-        <ProductShowcase />
         <Stats />
         <Architecture />
         <Process />
@@ -55,6 +53,16 @@ function App() {
             <main id="main-content" className="bg-[#030712] pt-[73px] text-white">
               <Suspense fallback={<Loader />}>
                 <ProjectDetail />
+              </Suspense>
+            </main>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <main id="main-content" className="bg-[#030712] pt-[73px] text-white">
+              <Suspense fallback={<Loader />}>
+                <BlogList />
               </Suspense>
             </main>
           }
