@@ -13,7 +13,7 @@ export default function About() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 'some' }}
         variants={fadeIn}
         className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_0.6fr] lg:items-center"
       >

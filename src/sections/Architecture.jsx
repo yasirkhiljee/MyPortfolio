@@ -22,7 +22,7 @@ export default function Architecture() {
   return (
     <SectionWrapper id="architecture" className="relative overflow-hidden bg-[#020713] text-white">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-sky-500/10 to-transparent" />
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={fadeIn} className="relative mx-auto max-w-7xl space-y-10">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 'some' }} variants={fadeIn} className="relative mx-auto max-w-7xl space-y-10">
         <SectionHeading
           label="Architecture"
           title="Interactive system design for sustainable Android apps."

@@ -9,7 +9,7 @@ export default function ProjectCard({ project, index }) {
     <motion.article
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 'some' }}
       variants={cardMotion}
       transition={{ delay: index * 0.12 }}
       className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_-60px_rgba(0,0,0,0.95)] backdrop-blur-xl hover:-translate-y-1 hover:border-emerald-400/20 hover:bg-white/10 transition"

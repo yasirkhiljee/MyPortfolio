@@ -12,7 +12,7 @@ export default function Skills() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 'some' }}
         variants={fadeIn}
         className="relative mx-auto max-w-7xl space-y-10"
       >

@@ -12,7 +12,7 @@ export default function Stats() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 'some' }}
         variants={fadeIn}
         className="relative mx-auto grid max-w-7xl gap-8"
       >

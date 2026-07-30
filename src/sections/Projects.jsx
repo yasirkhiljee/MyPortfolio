@@ -13,7 +13,7 @@ function FeaturedProject({ project }) {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 'some' }}
       variants={fadeIn}
       className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]"
     >

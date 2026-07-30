@@ -66,7 +66,7 @@ export default function ProductShowcase() {
   return (
     <SectionWrapper id="product-showcase" className="relative overflow-hidden bg-[#02050d] text-white">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-500/10 to-transparent" />
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={fadeIn} className="relative mx-auto max-w-7xl space-y-12">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 'some' }} variants={fadeIn} className="relative mx-auto max-w-7xl space-y-12">
         <SectionHeading
           label="Product showcase"
           title="A premium app-focused experience that feels like a SaaS landing page."
@@ -97,7 +97,7 @@ export default function ProductShowcase() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 'some' }}
               variants={staggerChildren}
               className="rounded-[36px] border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] backdrop-blur-xl"
             >
