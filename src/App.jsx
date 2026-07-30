@@ -8,15 +8,12 @@ import Footer from './components/Footer'
 const About = lazy(() => import('./sections/About'))
 const Skills = lazy(() => import('./sections/Skills'))
 const Projects = lazy(() => import('./sections/Projects'))
-const Stats = lazy(() => import('./sections/Stats'))
-const Architecture = lazy(() => import('./sections/Architecture'))
 const Process = lazy(() => import('./sections/Process'))
 const Timeline = lazy(() => import('./sections/Timeline'))
 const ProjectDetail = lazy(() => import('./sections/ProjectDetail'))
 const Blog = lazy(() => import('./sections/Blog'))
 const BlogList = lazy(() => import('./sections/BlogList'))
 const BlogPost = lazy(() => import('./sections/BlogPost'))
-const Personal = lazy(() => import('./sections/Personal'))
 const WhyHire = lazy(() => import('./sections/WhyHire'))
 const Contact = lazy(() => import('./sections/Contact'))
 
@@ -28,12 +25,9 @@ function HomePage() {
         <About />
         <Skills />
         <Projects />
-        <Stats />
-        <Architecture />
         <Process />
         <Timeline />
         <Blog />
-        <Personal />
         <WhyHire />
         <Contact />
       </Suspense>
